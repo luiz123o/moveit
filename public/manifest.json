@@ -1,15 +1,15 @@
 {
-    "name": "Template - Boilerplate",
-    "short_name": "Template",
+    "name": "MoveIt",
+    "short_name": "MoveIt",
     "icons": [{
-            "src": "/img/favicon-ipr.png",
+            "src": "favicon.png",
             "type": "image/png",
             "sizes": "16x16"
         }
 
     ],
     "background_color": "#06092B",
-    "description": "Template",
+    "description": "MoveIt",
     "display": "fullscreen",
     "start_url": "/",
     "theme_color": "#06092B"

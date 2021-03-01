@@ -18,7 +18,8 @@ html, body, #__next{
 }
 
 body {
-  font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: ${({ theme }) => theme.colors.grayLight};
+  font-family: --apple-system, BlinkMacSystemFont, 'Inter','Rajdhani','Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 `
