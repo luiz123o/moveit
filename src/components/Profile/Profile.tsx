@@ -5,7 +5,7 @@ const Profile = () => {
     <S.Container>
       <img src="https://github.com/luiz123o.png" alt="avatar" />
       <div>
-        <strong>Luiz</strong>
+        <strong>Luiz Otavio</strong>
         <p>
           <img src="icons/level.svg" alt="Seta verde para cima" />
           Level 1
