@@ -1,6 +1,7 @@
 export default {
   colors: {
     grayLine: '#DCDDE0',
+    grayDark: '#616161',
     blueLight: '#5965E0',
     blueDark: '#4953B8',
     green: '#4CD62B',
@@ -8,6 +9,7 @@ export default {
     textBlue: '#B2B9FF',
     title: '#2E384D',
     text: '#666666',
-    grayLight: '#F2F3F5'
+    grayLight: '#F2F3F5',
+    white: '#ffffff'
   }
 }
