@@ -1,14 +1,16 @@
-import { ButtonProps } from 'components/Button/Button'
+import { ButtonProps } from 'components/Button'
+import { darken } from 'polished'
+
 import styled, { css } from 'styled-components'
 
 const variants = {
   primary: css`
-    background: ${({ theme }) => theme.colors.blueLight};
-    color: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.button.start};
+    color: ${({ theme }) => theme.colors.text_icons};
     transition: background 2s ease;
 
     &:hover {
-      background: ${({ theme }) => theme.colors.blueDark};
+      background: ${darken(0.2, '#2e86de')};
     }
     &:focus {
       outline: thin dotted;
@@ -17,12 +19,12 @@ const variants = {
     }
   `,
   secondary: css`
-    background: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.title};
+    background: ${({ theme }) => theme.colors.button.stop};
+    color: ${({ theme }) => theme.colors.text_icons};
     transition: background 1s ease;
     &:hover {
-      background: ${({ theme }) => theme.colors.red};
-      color: ${({ theme }) => theme.colors.white};
+      background: ${darken(0.1, '#f20732')};
+      color: ${({ theme }) => theme.colors.text_icons};
     }
     &:focus {
       outline: thin dotted;
@@ -44,8 +46,8 @@ export const Container = styled.button<ButtonProps>`
 
     border: none;
     border-radius: 0.5rem;
-    background: ${background || theme.colors.blueLight};
-    color: ${color || theme.colors.white};
+    background: ${background || theme.colors.accent.soft};
+    color: ${color || theme.colors.text_icons};
     font-size: 2rem;
     font-weight: 600;
 

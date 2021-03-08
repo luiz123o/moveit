@@ -1,55 +1,69 @@
 import styled, { css } from 'styled-components'
-import Button from '../../../components/Button/Button'
+import Button from '../../../components/Button'
 
 export const Container = styled.div``
 
-export const StatsButton = styled(Button)``
+export const StatsButton = styled(Button)`
+  svg {
+    margin-left: 2rem;
+  }
+`
 
 export const FinishedButton = styled(Button)`
   ${({ theme }) => css`
+    border-bottom: 0.2rem solid ${theme.colors.border};
+
+    > svg {
+      margin-left: 2rem;
+
+      fill: ${theme.colors.text_icons};
+    }
     &:disabled {
-      background: ${theme.colors.white};
-      color: ${theme.colors.text};
+      background: ${theme.colors.shapes.primary};
+      color: ${theme.colors.text_icons};
       cursor: not-allowed;
     }
 
     &:not(:disabled):hover {
-      background: ${theme.colors.blueDark};
+      background: ${theme.colors.shapes.background};
     }
   `}
 `
 
 export const Content = styled.div`
-  display: flex;
-  align-items: center;
-  font-family: Rajdhani;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.title};
-
-  div {
-    flex: 1;
+  ${({ theme }) => css`
     display: flex;
     align-items: center;
-    justify-content: space-space-evenly;
+    font-family: Rajdhani;
+    font-weight: 600;
 
-    background: ${({ theme }) => theme.colors.white};
-    box-shadow: 0 0 6rem rgba(0, 0, 0, 0.05);
-    border-radius: 0.5rem;
-    font-size: 12rem;
-    text-align: center;
-
-    span {
+    div {
       flex: 1;
-      &:first-child {
-        border-right: 0.1rem solid #f0f1f3;
-      }
-      &:last-child {
-        border-left: 0.1rem solid #f0f1f3;
+      display: flex;
+      align-items: center;
+      justify-content: space-space-evenly;
+
+      background: ${theme.colors.text.primary};
+      box-shadow: 0 0 6rem rgba(0, 0, 0, 0.15);
+      border-radius: 1rem;
+      font-size: 12rem;
+      text-align: center;
+
+      span {
+        color: ${theme.colors.text_icons};
+        flex: 1;
+        &:first-child {
+          border-right: 0.2rem solid ${theme.colors.text_icons};
+        }
+        &:last-child {
+          border-left: 0.1rem solid ${theme.colors.text_icons};
+        }
       }
     }
-  }
-  > span {
-    font-size: 10.4rem;
-    margin: 0 0.5rem;
-  }
+    > span {
+      color: ${theme.colors.text.primary};
+      font-size: 10.4rem;
+      margin: 0 0.5rem;
+    }
+  `}
 `

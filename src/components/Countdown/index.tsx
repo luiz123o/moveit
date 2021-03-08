@@ -1,37 +1,25 @@
-import { useEffect, useState } from 'react'
 import * as S from '../../styles/components/Countdown/styles'
+import { CountdownContext } from '../../contexts/CountdownContext'
 
-let countdownTimeout: NodeJS.Timeout
-const Countdown = () => {
-  const [time, setIsTime] = useState(0.1 * 60)
-  const [isActive, setActive] = useState(false)
-  const [hasFinished, setHasFinished] = useState(false)
+import {
+  AiFillCaretRight,
+  AiOutlineClose,
+  AiOutlineCheckCircle
+} from 'react-icons/ai'
+import { useContext } from 'react'
 
-  const minutes = Math.floor(time / 60)
-
-  const seconds = time % 60
+export const Countdown = () => {
+  const {
+    minutes,
+    seconds,
+    hasFinished,
+    isActive,
+    startCount,
+    stopCount
+  } = useContext(CountdownContext)
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
-
-  const startCount = () => {
-    setActive(true)
-  }
-  const stopCount = () => {
-    clearTimeout(countdownTimeout)
-    setActive(false)
-    setIsTime(0.1 * 60)
-  }
-  useEffect(() => {
-    if (isActive && time > 0) {
-      countdownTimeout = setTimeout(() => {
-        setIsTime(time - 1)
-      }, 1000)
-    } else if (isActive && time === 0) {
-      setHasFinished(true)
-      setActive(false)
-    }
-  }, [isActive, time])
 
   return (
     <S.Container>
@@ -48,7 +36,10 @@ const Countdown = () => {
       </S.Content>
 
       {hasFinished ? (
-        <S.FinishedButton disabled>Ciclo encerrado</S.FinishedButton>
+        <S.FinishedButton disabled>
+          Ciclo encerrado
+          <AiOutlineCheckCircle />
+        </S.FinishedButton>
       ) : (
         <>
           {isActive ? (
@@ -58,10 +49,12 @@ const Countdown = () => {
               type="button"
             >
               Abandonar Ciclo
+              <AiOutlineClose />
             </S.StatsButton>
           ) : (
             <S.StatsButton variant="primary" onClick={startCount} type="button">
               Iníciar Ciclo
+              <AiFillCaretRight />
             </S.StatsButton>
           )}
         </>
@@ -69,4 +62,3 @@ const Countdown = () => {
     </S.Container>
   )
 }
-export default Countdown

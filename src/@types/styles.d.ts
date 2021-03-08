@@ -1,8 +1,8 @@
 import 'styled-components'
 
-import { light as lightTheme } from './themes/index'
+import { theme } from '../styles/themes/index'
 
-export type Theme = typeof lightTheme
+type Theme = typeof theme
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
